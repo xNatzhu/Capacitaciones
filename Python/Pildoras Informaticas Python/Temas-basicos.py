@@ -52,7 +52,29 @@ for variable in [1,2,3]: #Va imprimir 3 veces por la cantidad de elementos que p
     print("Hola")
 
 
+for ejemplo in ["Pildoras", "Informaticas", 30]:
+    print(ejemplo, end=" ") #Esto permite que cuando se este iterando no haga un salto de linea. El END permite
+    #realizar esta accion.
 
+#Variables
 
+contador = 0 
+miEmail=input("Introduce tu correo electronico: ")
+for i in miEmail: 
+    if( i=="@" or i=="."):
+        contador+=1
 
- 
+        # Hace una comparativa la variable "i" va comparando 1 con cada palabra del string, cada palabra pasara por el filtro condicional y si es verdadero se le asignara verdadero al email.
+       
+if(contador == 2):
+    print("El email es correcto")
+# Una vez que el email fue validado correcto se crea un segundo condicional para filtrar su estado y imprimirlo.
+
+else:
+    print("No es correcto")
+
+#FOR - RANGE
+
+for rango in range(5): #El range es el comun de javascript que es for of. permite que puedas colocar dentro de el un rango y ponerle la cantidad que se va duplicar. En este caso seria 5 veces.
+    print("Hola mundo")
+

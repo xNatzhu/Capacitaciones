@@ -1,5 +1,8 @@
 #DICCIONARIOS.
 
+import math
+
+
 miDiccionario={
     "Alemania":"Berlin",
     "Francia":"Paris",
@@ -77,4 +80,62 @@ else:
 
 for rango in range(5): #El range es el comun de javascript que es for of. permite que puedas colocar dentro de el un rango y ponerle la cantidad que se va duplicar. En este caso seria 5 veces.
     print("Hola mundo")
+
+# Bucle While
+
+#El bucle while es un bucle indeterminado porque no sabes cuantas veces va ejecutar el codigo en su interior
+
+#palabra reservada while condicion:
+            #cuerpo del bucle
+
+# cuando la condicion es falsa la ejecucion finalizaria. 
+
+i = 1
+
+#while = "Mientras" que i es = 1 sera menor o igual que 10 ejecutara el codigo.
+
+while i<=10:
+    print("Ejecucion"+str(i))
+    i+=1 # se conoce como un contador.
+
+print("Termino la ejecucion: ")
+
+#Ejercicio para saber si la edad es correcta. 
+
+ingreseEdad = int(input("Ingrese su edad: "))
+
+while ingreseEdad <=0 or ingreseEdad > 120:
+    ingreseEdad = int(input("La edad colocada no es correcta, vuelva colocarla nuevamente: "))
+
+print("La edad colocada es correcta, su edad es: " + str(ingreseEdad))
+
+
+import math #Le decimos a nuestro script que va importar esta clase.
+
+print("Programa de calculo de raiz cuadrada")
+añadeUnNumero = int(input("Ingrese el respectivo numero: "))
+
+intentos = 0
+while añadeUnNumero < 0:
+    print("No se puede hayar la raiz de un numero negativo: ")
+
+    if (intentos==2):
+        print("Has consumido demasiado intentos")
+        break #El break permite forzar la salida del bucle.
+    
+    añadeUnNumero = int(input("Ingrese el respectivo numero de nuevo: "))
+
+    if(añadeUnNumero < 0):
+        intentos +=1
+
+if(intentos < 2):
+    solucion = math.sqrt(añadeUnNumero)
+    print("La raiz cuadrada de " + str(añadeUnNumero) + "es " + str(solucion))
+
+
+
+
+
+
+
 

@@ -133,9 +133,50 @@ if(intentos < 2):
     print("La raiz cuadrada de " + str(añadeUnNumero) + "es " + str(solucion))
 
 
+#continue -> ignora esa vuelta de bucle apartir de la lectura continua (por ejemplo en la vuelta 5) y salta a la siguiente vuelta del bucle por ejemplo en este caso a la vuelta 6.
+
+#pass -> devolvue null al bucle. Se suele usar para crear clases nules, o cuando estas desarrollando un bucle y le pone pass para que salga null.
+
+#else -> funciona similar a un condicional. 
 
 
+for letra in "Python":
+    
+    if(letra == "h"):
+        continue #cuando se encuentra con la letra h ignora esa letra y salta a la siguiente iterracion en este caso "o".
+
+    print("Viendo la letra: " + letra)
+
+nombre = "Pildoras informaticas"
+
+contador = 0
+for contadorNombre in nombre:
+    if(contadorNombre == " "):
+        continue
+    contador+=1
+
+print(contador)
+
+#Esta es una de las utilidades que podria tener el continue. Ignorar los espacios para brindar un numero de longitud de texto especifico.    
 
 
+#PASS
+
+#No es muy utilizada por lo que hace es devolver un null, es como si el bucle no se ejecutara.
+
+#ELSE
+
+palabra = "palabra"
+letraSeleccionada = "a"
+
+for detectorDeLetra in palabra:
+    if(detectorDeLetra == letraSeleccionada):
+       validacionDePalabra = True
+       break
+
+else: #Cuando el bucle este vacio, y termine de correr y else le dara el re nombre.
+    validacionDePalabra = False
+
+print("La palabra seleccionada: " + str(letraSeleccionada) + "tiene una validacion de: " + str(validacionDePalabra))
 
 

@@ -59,3 +59,40 @@ print(next(devuelvePares)) #Aca se ejecutaria 3 veces porque el next fueron 3.
 
 # Otra manera poder ejecutarlo de una maneras mas iterable es por medio de los bucles que va iterar el objeto.
 
+
+
+#yield from. -> simplifica el codigo del generador en el caso de utilizar bucles anidados. 
+
+#un bucle anidado seria por ejemplo un bucle dentro otro bucle (for dentro de otro for).
+
+def devuelve_ciudades(*ciudades): #cuando agregamos el "*" en el parametro le estamos diciendo a la funcion que no sabemos cuanto sera la cantidad de datos que ingresara. Aparte le estamos diciendo que todo esos elementos que recibe lo va ordenar en forma de tupla.
+    for elemento in ciudades:
+        yield elemento
+
+
+ciudades_devueltas = devuelve_ciudades("madrid", "Arroyito", "Cordoba", "El Tio") 
+
+print(next(ciudades_devueltas))#aca el codigo nos esta devolviendo solamente un elemento "que es madrid"
+
+print(next(ciudades_devueltas))
+
+#Los elementos estan compuesto por subelementos en este caso, el subelemento de madrid son las letras.
+
+#Para acceder a cada una de las letras hay que utilizar bucles anidados.
+
+def devuelve_letras(*palabra):
+        for cadaPalabra in palabra:
+            for subPalabra in cadaPalabra:
+                yield subPalabra
+
+        #El yield from lo que hace es que sea mas dinamico el codigo cuando se trata de bucles anidados el ejemplo seria el siguiente
+        
+        # for cadaPalabra in palabra:
+        #yield from elemento 
+
+        #Este pequeño fragmento seria una forma resumidad de utilizar el yield from con bucles anidados.
+
+palabras_devueltas = devuelve_letras("Agustin", "Azul", "Amarillo")
+
+print(next(palabras_devueltas))
+print(next(palabras_devueltas))

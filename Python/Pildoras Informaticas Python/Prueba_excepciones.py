@@ -21,3 +21,51 @@ def divide():
 
 
 divide()
+
+def evaluaEdad(edad):
+
+    if edad < 0:
+       
+       #hay que especificar el tipo de excepcion que largara  cuando cumpla esa condicion.
+       raise TypeError("No se permiten edades negativas") #no solamente podemos declarar que tipo de error queremos que lea, sino tambien nos permite que podemos personalizar un mensaje que se puede enviar a un usuario. Esto es lo importante que tiene raise.
+            
+        # No se va ejecutar porque hemos provocado el lanzamiento de una excepcion, pero no se controla con un bloque try o excepcion. 
+
+        # Te crea un error.
+    if edad < 20:
+        return "Eres muy joven"
+    elif edad < 40:
+        return "Eres joven"
+
+    elif edad < 65:
+        return "eres maduro"
+
+    elif edad < 100:
+        return "Cuidate..."
+
+print(evaluaEdad(10))
+
+
+#Lo primero que debemos hacer es importar la clase math para utilizarlo la clase en matematicas.
+
+import math
+
+def calculaRaiz(numero):
+    if(numero < 0):
+        raise ValueError("El numero no puede ser negativo")
+
+    else:
+        return math.sqrt(numero)
+
+#al identificar donde se encuentra el error, lo que podemos hacer es capturarlo con el try.
+
+try:
+    op1 = int(input("introduce un numero: "))
+
+except ValueError as ErrorDeNumeroNegativo: #El as te permite dar un alias a ese error capturado.
+
+    print(ErrorDeNumeroNegativo)
+
+print(calculaRaiz(op1))
+
+print("Programa finalizado.")

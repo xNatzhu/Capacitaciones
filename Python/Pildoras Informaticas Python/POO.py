@@ -106,28 +106,40 @@ class Coche():
         #Propiedad
         #Comportamiento
 
-    largoChasis = 250 #Se construyo la primera propiedad de la clase.
-    anchoChasis = 120
-    ruedas = 4
-    enMarcha = False
+    #Estado iniciales -> estas caracteristicas son de fabrica / cuando creamos un objeto inmediatamente se le otorga unos datos predeterminados.
+
+    #Los estados iniciales que tendra una determinada clase, se lo denomina constructor. Es un metodo especial que le da estado inicial a los objetos.
+
+    def __init__(self): #el __init__ las dos barras significa que sera el constructor que tendra una clase. Y dentro de esa funcion constructora ira las propiedades y valores iniciales que se otorgaran. Init significa estado inicial.
+      
+        self.largoChasis = 250 #Se construyo la primera propiedad de la clase.
+        self.anchoChasis = 120
+        self.ruedas = 4
+        self.enMarcha = False
+
+        
 
     #los metodos se crean con la palabra def. que se refiere a una funcion.
 
-    def enMovimiento(self): #El objeto perteneciente a la clase, Python nos obliga colocarlo como primer parametro obligatorio. hace referencia al this pór ejemplo en JS. El this hacia referencia al propio objeto sin embargo no nos lo pide ponerlo de parametro aca si.
-
-        self.enMarcha = True
-        #self nombre del objeto / la funcion + variable = valor que tendra.
-
-    def estado(self): # nos va decir el estado
+    def enMovimiento(self, arrancamos): #El objeto perteneciente a la clase, Python nos obliga colocarlo como primer parametro obligatorio. hace referencia al this pór ejemplo en JS. El this hacia referencia al propio objeto sin embargo no nos lo pide ponerlo de parametro aca si.
+       
+        # le pasamos un parametro donde nos dira si el coche es true o false para determinar si arranco.
+        self.enMarcha = arrancamos
+        
         if(self.enMarcha):
             return "El coche esta en marcha."
         else:
             return "El coche no se encuentra en marcha."
+        
+    
+    def estado(self):
+        print("El coche tiene ", self.ruedas, "Ruedas. Un ancho de ", self.anchoChasis, " y un ancho de ", self.largoChasis)
 
+        #self nombre del objeto / la funcion + variable = valor que tendra.
     
 #creando un objeto, instancia o ejemplar.
 
-miCoche = Coche() #instanciar una clase, ejemplarizar una clase. (todo esto se refiere a lo mismo que es crear un objeto). Una diferencia es que en js se utiliza variable = new clase, y aca es variable = clase sin el new.
+miCoche = Coche() #instanciar una clase, ejemplar de clase. (todo esto se refiere a lo mismo que es crear un objeto). Una diferencia es que en js se utiliza variable = new clase, y aca es variable = clase sin el new.
 
 
 print("el largo del coche es: ", miCoche.largoChasis)  #aca podriamos ver y acceder cual es la propiedad su valor que esta teniendo el objeto creado.
@@ -136,13 +148,27 @@ print("el largo del coche es: ", miCoche.largoChasis)  #aca podriamos ver y acce
 
 #miCoche.enMovimiento = True 
 
-miCoche.enMovimiento() 
+print(miCoche.enMovimiento(True))
 
-print(miCoche.estado())
-
-
+miCoche.estado()
 
 
+print("------------------A continuacion creamos el segundo objeto.-------------------------")
+
+
+miSegundoCoche = Coche() #Ya se creo la segunda instancia.
+
+print(miCoche.enMovimiento(False))
+
+miSegundoCoche.estado()
+
+# ENCAPSULAMIENTO
+
+#El encapsulamiento hablado anteriormente permite resguardar tu codigo y que no se pueda editar desde afuera es decir que respete los datos registrados que se encuentren dentro de una clase para eso se hace lo siguiente
+
+#s elf.__ruedas = 4 "el añadirle __ estamos encapsulando lo que si decimos fuera de una clase"
+
+# miSegundoCoche.rueda = 5 no va a cambiar a 5 porque el "__" permitira que siempre se respete el valor asignado en la clase y no permitira cambiarlo.
 
 
 

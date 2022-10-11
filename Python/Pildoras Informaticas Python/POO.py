@@ -166,15 +166,63 @@ miSegundoCoche.estado()
 
 #El encapsulamiento hablado anteriormente permite resguardar tu codigo y que no se pueda editar desde afuera es decir que respete los datos registrados que se encuentren dentro de una clase para eso se hace lo siguiente
 
-#s elf.__ruedas = 4 "el añadirle __ estamos encapsulando lo que si decimos fuera de una clase"
+# self.__ruedas = 4 "el añadirle __ estamos encapsulando lo que si decimos fuera de una clase"
 
 # miSegundoCoche.rueda = 5 no va a cambiar a 5 porque el "__" permitira que siempre se respete el valor asignado en la clase y no permitira cambiarlo.
 
 
+#-----------------------------------------------------------------------------------------------------
+
+print("-------Encapsulamiento-------")
 
 
 
+#Encapsulamiento.
 
 
+class Moto():
+    def __init__(self):
+
+        self.__motor = 5
+        self.__ruedaDelantera = "Rodado 17"
+        self.__ruedaTrasera = "Rodado 14"
+    
+
+    def MotoEncendida(self, arrancamos):
+        self.motoEnMovimiento = arrancamos
+
+        if(self.motoEnMovimiento):
+            chequeo = self.__chequeoInternoMoto()
+
+        
+        if(self.motoEnMovimiento and chequeo):
+            return "La moto esta en marcha."
+
+        elif(self.motoEnMovimiento and chequeo == False):
+            return "Algo ha ido mal en el chequeo ---- no se puede arrancar."
+        else:
+            return "La moto no se encuentra en marcha."
+    
+    def estadoDeLaMoto(self):
+        print("La moto tiene una rueda trasera: ", self.__ruedaTrasera, "rueda delantera ", self.__ruedaDelantera, "El moto tiene una cilindrada de: ", self.__motor)
+        
+    def __chequeoInternoMoto(self): # "En capsulamos un metodo con __ encapsulamos una propiedad o un metodo que desemos esto permitira que no se pueda editar afuera de la clase y tampoco te permite llamarlo desde afuera.."
 
 
+        print("Realizando chequeo interno...")
+
+        self.gasolina = "ok"
+        self.aceite = "ok"
+        self.puertas = "cerradas"
+
+        if(self.gasolina == "ok" and self.aceite == "ok" and self.puertas == "cerradas"):
+            return True
+        else:
+            return False
+
+         
+motoHonda = Moto()
+
+print(motoHonda.MotoEncendida(True))
+
+motoHonda.estadoDeLaMoto()

@@ -86,6 +86,54 @@ print(miFurgoneta.carga(True))
 miBiciElectrica = BicicletasElectricas()
 
 
+#HERENCIA SUPER....
+
+print("**************************HERENCIA SUPER**********************")
+
+
+class Persona():
+
+    def __init__(self, nombre, edad, ciudad):
+
+        self.nombre = nombre
+        self.edad = edad
+        self.ciudad = ciudad
+
+    def descripcion(self):
+
+        print("Nombre: ", self.nombre, "Edad: ", self.edad, "Lugar de residencia: ", self.ciudad)
+        
+
+class Empleado(Persona): #Esto hace que la magia de herencia no solamente tenga los elemento del empleado sino tambien la descripcion de una persona, ya que un empleado tambien es una persona.
+
+    def __init__(self, salario, antiguedad, nombre_empleado, edad_empleado,  ciudad_empleado):
+                
+                #esto permite agregarle mas argumento para solicitar los datos al constructor padre para cuando le agreguemos los datos lo pueda tomar.
+
+        super().__init__(nombre_empleado, edad_empleado, ciudad_empleado)
+        #el super esta llamado a los elementos de la clase padre, que elemento? -> al elemento init.
+        self.salario = salario
+        self.antiguedad = antiguedad
+
+# PRINCIPIO DE SUSTITUCION. PORQUE UN EMPLEADO SIEMPRE SERA UN EMPLEADO.
+
+
+
+
+Antonio = Empleado(2500, 5500, "Antonio", 20, "España")
+
+Antonio.descripcion()
+
+print(isinstance(Antonio, Empleado)) # Devuelve true si pertenece en una clase en concreto o devuelvo false si no lo es, en este caso devolveria true porque el objeto "Antonio esta creado en la clase empleado que tambien esa vinculada con la clase padre persona las que ambas clases serian true."
+
+
+Agustin = Persona("Agustin", 23, "Argentina")
+
+Agustin.descripcion()
+
+print(isinstance(Agustin, Empleado)) # Aca dara falso porque Agustin no esta perteneciendo a la clase empleado sino solamente a persona.
+
+
 
 
  

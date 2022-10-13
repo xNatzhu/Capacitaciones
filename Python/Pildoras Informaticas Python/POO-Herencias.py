@@ -88,7 +88,7 @@ miBiciElectrica = BicicletasElectricas()
 
 #HERENCIA SUPER....
 
-print("**************************HERENCIA SUPER**********************")
+print("********************************HERENCIA SUPER***************************")
 
 
 class Persona():
@@ -135,5 +135,43 @@ print(isinstance(Agustin, Empleado)) # Aca dara falso porque Agustin no esta per
 
 
 
+# POLIMORFISMO 
 
+# POLI = MUCHAS MORFISMO = FORMAS
+
+# Cuando un objeto pueda cambiar de forma dependiendo del conxteto que se utilice.
+
+
+print("-----------------------------POLIMORFISMO-------------------------------")
+
+#EJEMPLO:
+
+class Caballo():
+
+    def corriendo(self):
+        print("troto con mis patas bien grandes y muuy veloz.")
+
+
+class Perro():
+
+    def corriendo(self):
+        print("corro con mis piernitas chiquitas")
+
+
+class Tortuga():
+
+    def corriendo(self):
+        print("Corro muy pero muy despacito")
+
+
+
+def corriendoAnimales(animales): #Aca empieza el polimorfismo - toma el parametro con la respectiva clase que pertenece el objeto
+
+    animales.corriendo()
+    #aca es como dijieramos miCaballito.corriendo()
+
+#Aca lo que hace es trasformar el parametro animal al objeto que estamos traendo en este caso un caballo y se trasformara en vez de animales a caballo. Esto es lo que denominamos polimorfismo.
  
+miCaballito = Caballo()
+
+corriendoAnimales(miCaballito) #aca toma el dato como parametro del objeto creado en este caso mi caballito.

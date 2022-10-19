@@ -45,6 +45,8 @@ archivo_text=open("archivo.txt","w")
         # Lectura -> Permite leer sobre el (r)
         # Escritura -> permite añadir informacion al archivo (w)
         # append -> para agregar informacion un archivo que existe y tiene info en su interior (a)
+        # "r+" -> Es de lectura y escritura
+        
 
 # EN EL CASO QUE NO EXISTA EL ARCHIVO QUE SE QUIERA ABRIR SE CREA ESE ARCHIVO.
 
@@ -77,3 +79,45 @@ print(leerTexto)
 archivo_texto2=open("archivo.txt","a") # extension, añadir o agregar.
 
 archivo_texto2.write("---Una nueva linea agregada al archivo existente.")
+
+
+archivo_texto2.close()
+#       -------------------------------- -------ARCHIVOS EXTERNOS 2------------------
+
+
+print("-----------------------------Archivo externo 2-------------------------------")
+
+# Cuando le decimos open a un archivo el puntero se ponte en el principio esperando la orden, el puntero es lo mismo que el cursor.
+
+#Al ser una primera lectura el curso se situa al final, esto implica que no puede volver de leer de nuevo una segunda vez al menos que se mueva ese puntero/cursor.
+
+# MODIFICACION DE LA POSICION DEL PUNTERO
+
+# Esto se puede realizar por el metodo seek(numero de caracter donde queremos que se posicione)
+
+archivo_text3 = open("archivo.txt", "r")
+print(archivo_text3.read())
+
+archivo_text3.seek(0) # Le decimos que desplace el puntero al principio y pedimos con el read de abajo que haga nuevamente la lectura.
+
+# Seek solamente posiciona el puntero
+
+print(archivo_text3.read(5)) # read hace una lectura hasta el puntero donde estemos.
+
+# Por ejemplo si le decimos read(5) nos va tomar las 5 primeras palabra de la frase, ya que le damos una cantidad hasta donde queremos llegar con el puntero.
+
+archivo_text3.close()
+
+archivo_text4 = open("archivo.txt", "r+")
+
+lista_texto = archivo_text4.readlines()
+lista_texto[0]="Esta linea ha sido incluida en el exterior"
+
+archivo_text4.seek(0)
+
+archivo_text4.writelines(lista_texto)
+
+archivo_text4.close()
+
+
+
